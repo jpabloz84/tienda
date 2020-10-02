@@ -3,13 +3,13 @@ include_once("lib/scripts.php");
 $base_url=base_url(basename(__FILE__));
 $data =file_get_contents('php://input'); //json_decode(file_get_contents('php://input'), true);
 if($data!=null){
-    $parametros="jsonparams\n".$data;
+    $parametros="JSONPARAMS\n".$data;
     savelog("log.txt",$parametros);
 
 }
 
 if(count($_REQUEST)>0){
-$parametros="requestparams\n".var_export($_REQUEST, true);
+$parametros="REQUESTPARAMS\n".var_export($_REQUEST, true);
     savelog("log.txt",$parametros);
 }
 
@@ -23,7 +23,7 @@ $parametros="requestparams\n".var_export($_REQUEST, true);
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="format-detection" content="telephone=no">
-<script src="https://www.mercadopago.com/v2/security.js" view="notificaciones"></script>
+    <script src="js/security.js" view="notificaciones"></script>
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
