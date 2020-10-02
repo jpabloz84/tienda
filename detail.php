@@ -15,32 +15,34 @@ $urlimg=$base_url.$img;
 
 
 
-$producto=$_REQUEST['title'];
+$title=$_REQUEST['title'];
 $importe_unitario=$_REQUEST['price'];
 $cantidad=$_REQUEST['unit'];
 
 
 $productos= array();
 /*armo las variables involucradas en el pago (prdocutos, cliente, etc)*/
-$producto=array('id' =>$nro_tipo,'titulo'=>$producto,'cantidad'=>$cantidad,'divisa'=>'ARS','precio_unitario'=>$importe_unitario,'imagen'=>$urlimg);
+$producto=array('id' =>"1234",'titulo'=>$title,'cantidad'=>$cantidad,'divisa'=>'ARS','precio_unitario'=>$importe_unitario,'imagen'=>$urlimg,'descripcion'=>"Dispositivo móvil de Tienda e-commerce");
 array_push($productos, $producto);
 /*cargo los datos del pagador*/
-$pagador=array('nombres' =>"lalo" ,'apellido'=>"landa",'tipo_docu'=>'DNI','nro_docu'=>'1234567','email'=>"test_user_63274575@testuser.com",'tel_caracteristica'=>"11",'tel_numero'=>"22223333","calle"=>"False","nro"=>"123","cp"=>"1111");
+$pagador=array('nombres' =>"Lalo" ,'apellido'=>"Landa",'tipo_docu'=>'DNI','nro_docu'=>'1234567','email'=>"test_user_63274575@testuser.com",'tel_caracteristica'=>"11",'tel_numero'=>"22223333","calle"=>"False","calle_nro"=>123,"cp"=>"1111");
 
 //inicio la clase mercado pago que se encargara de hacer el checkout con el sdk de mercado pago
 $accesstoken="APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398";
 $sandbox_mode=false; //(no utilizar “sandbox_init_point”)
 $mp=new mp();
 $mp->init($accesstoken,$sandbox_mode);
-$mp->successurl=$base_url."pedido_pagado.php";
-$mp->pendingurl=$base_url."pedido_pendiente.php";
-$mp->failureurl=$base_url."pedido_fallo.php";
+$mp->successurl=$base_url."success.php";
+$mp->pendingurl=$base_url."pending.php";
+$mp->failureurl=$base_url."failure.php";
 $mp->notificacionesurl=$base_url."notificaciones.php";
 //$external_referencia="jpabloz_84@hotmail.com_test_".$id_articulo;
 $external_referencia="jpabloz_84@hotmail.com";
 /*la cantidad de cuotas y los pagos excluidos, estan definidos dentro de la clase como atributos privados*/
-$preference_id=$mp->getinitpoint($external_referencia,$productos,$pagante);
+$preference_id=$mp->getinitpoint($external_referencia,$productos,$pagador);
 $datapublickey=$accesstoken;
+$preferencestr=var_export($mp->last_preference, true);
+savelog("log.txt",$preferencestr);
 ?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -50,7 +52,7 @@ $datapublickey=$accesstoken;
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="format-detection" content="telephone=no">
-
+    <script src="https://www.mercadopago.com/v2/security.js" view="detail"></script>
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

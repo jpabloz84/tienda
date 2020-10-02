@@ -12,11 +12,12 @@ class mp{
  public $failureurl='';// url de donde mercadopago va a contestar cuando el pago haya fallado
  public $pendingurl=''; // url de donde mercadopago va a contestar cuando el pago este pendiente
  public $notificacionesurl='';// url de donde mercadopago va a notificar cambios (devoluciones por ejemplo)
- public $aprobados=true; //notifica solo pagos aprobados, sino poner false para que notifique todos
+ public $aprobados=false; //notifica solo pagos aprobados, sino poner false para que notifique todos
  private $error=null;
  private $PLATFORM_ID="";
  private $INTEGRATOR_ID="dev_24c65fb163bf11ea96500242ac130004";
  private $CORPORATION_ID="";
+ public $last_preference=null;
  /*REQUERIMIENTOS PARA APROBAR*/
  private $cuotas=6; //cantidad de cuotas a ofreces () 0 cualquier cantidad de cuotas,)
 /*aqui excluyo tipos de pago rapipago, transf bancaria, atm pagos por cajero automaticos*/
@@ -119,9 +120,7 @@ class mp{
      //agrego los articulos a pagar
      $articulos = array();               
      foreach ($items as  $item) {
-       $articulo=new MercadoPago\Item();
-       /*var_dump($articulo);
-       die();*/
+       $articulo=new MercadoPago\Item();       
        $articulo->id=$item['id'];
        $articulo->title=$item['titulo'];
        $articulo->quantity=$item['cantidad'];
@@ -130,6 +129,9 @@ class mp{
        //si existe la imagen, la pongo ne el articulo
        if(isset($item['imagen'])){
         $articulo->picture_url=$item['imagen'];
+       }
+       if(isset($item['descripcion'])){
+        $articulo->description=$item['descripcion'];
        }
        array_push($articulos, $articulo);
      }
@@ -143,7 +145,7 @@ class mp{
       $payer->first_name=$pagador['nombres']; 
      }
      if(isset($pagador['apellido'])){
-      $payer->surname =$pagador['apellido']; -
+      $payer->surname =$pagador['apellido']; 
       $payer->last_name=$pagador['apellido']; 
      }
      if(isset($pagador['email'])){
@@ -218,6 +220,7 @@ class mp{
 
       $preference->back_urls=$backurls;  
       //var_dump($preference);
+      //die();
       //genero el initpoint       
       $preference->save();
         $error=$preference->error;
@@ -228,7 +231,7 @@ class mp{
         }else{
           $initpoint=$preference->id;      
         }
-        
+        $this->last_preference=$preference;
 
     }catch (Exception $e) {
         $this->numError=98;

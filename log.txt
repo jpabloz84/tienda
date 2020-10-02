@@ -1,0 +1,275 @@
+01-10-2020 22:47:59
+
+01-10-2020 22:50:45
+MercadoPago\Preference::__set_state(array(
+   'id' => '469485398-d72a4462-a952-460b-9e0c-dcf551ebea40',
+   'auto_return' => 'all',
+   'back_urls' => 
+  stdClass::__set_state(array(
+     'failure' => 'https://localhost/tienda/failure.php',
+     'pending' => 'https://localhost/tienda/pending.php',
+     'success' => 'https://localhost/tienda/success.php',
+  )),
+   'notification_url' => 'https://www.asdasdgdsd.com/tienda/notificaciones.php',
+   'init_point' => 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=469485398-d72a4462-a952-460b-9e0c-dcf551ebea40',
+   'sandbox_init_point' => 'https://sandbox.mercadopago.com.ar/checkout/v1/redirect?pref_id=469485398-d72a4462-a952-460b-9e0c-dcf551ebea40',
+   'operation_type' => 'regular_payment',
+   'additional_info' => '',
+   'external_reference' => 'jpabloz_84@hotmail.com_test_7257923',
+   'expires' => false,
+   'expiration_date_from' => NULL,
+   'expiration_date_to' => NULL,
+   'collector_id' => 469485398,
+   'client_id' => 2147483647,
+   'marketplace' => 'NONE',
+   'marketplace_fee' => 0.0,
+   'differential_pricing' => NULL,
+   'payment_methods' => 
+  stdClass::__set_state(array(
+     'default_card_id' => NULL,
+     'default_payment_method_id' => NULL,
+     'excluded_payment_methods' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'id' => 'amex',
+      )),
+    ),
+     'excluded_payment_types' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'id' => 'atm',
+      )),
+    ),
+     'installments' => 6,
+     'default_installments' => NULL,
+  )),
+   'items' => 
+  array (
+    0 => 
+    stdClass::__set_state(array(
+       'id' => '1234',
+       'category_id' => '',
+       'currency_id' => 'ARS',
+       'description' => 'Dispositivo móvil de Tienda e-commerce',
+       'picture_url' => 'https://localhost/tienda/assets/003.jpg',
+       'title' => 'Sony Xperia XZ2',
+       'quantity' => 1,
+       'unit_price' => 10000,
+    )),
+  ),
+   'payer' => 
+  MercadoPago\Payer::__set_state(array(
+     'id' => NULL,
+     'entity_type' => NULL,
+     'type' => NULL,
+     'name' => 'Lalo',
+     'surname' => 'Landa',
+     'first_name' => NULL,
+     'last_name' => NULL,
+     'email' => 'test_user_63274575@testuser.com',
+     'date_created' => '2020-10-01T22:50:45.000-03:00',
+     'phone' => 
+    stdClass::__set_state(array(
+       'area_code' => '11',
+       'number' => '22223333',
+    )),
+     'identification' => 
+    stdClass::__set_state(array(
+       'number' => '1234567',
+       'type' => 'DNI',
+    )),
+     'address' => 
+    stdClass::__set_state(array(
+       'zip_code' => '1111',
+       'street_name' => 'False',
+       'street_number' => '123',
+    )),
+     '_last' => NULL,
+     'error' => NULL,
+     '_pagination_params' => NULL,
+     '_empty' => false,
+  )),
+   'shipments' => 
+  MercadoPago\Shipments::__set_state(array(
+     'mode' => NULL,
+     'local_pickup' => NULL,
+     'free_methods' => NULL,
+     'cost' => NULL,
+     'free_shipping' => NULL,
+     'receiver_address' => 
+    stdClass::__set_state(array(
+       'zip_code' => '',
+       'street_name' => '',
+       'street_number' => NULL,
+       'floor' => '',
+       'apartment' => '',
+       'city_name' => NULL,
+       'state_name' => NULL,
+       'country_name' => NULL,
+    )),
+     'dimensions' => NULL,
+     'default_shipping_method' => NULL,
+     '_last' => NULL,
+     'error' => NULL,
+     '_pagination_params' => NULL,
+     '_empty' => false,
+  )),
+   'date_created' => '2020-10-01T22:50:47.000-03:00',
+   'sponsor_id' => NULL,
+   'processing_modes' => NULL,
+   'binary_mode' => false,
+   'taxes' => NULL,
+   'metadata' => 
+  array (
+  ),
+   'tracks' => NULL,
+   '_last' => 
+  MercadoPago\Preference::__set_state(array(
+     'id' => '469485398-d72a4462-a952-460b-9e0c-dcf551ebea40',
+     'auto_return' => 'all',
+     'back_urls' => 
+    stdClass::__set_state(array(
+       'failure' => 'https://localhost/tienda/failure.php',
+       'pending' => 'https://localhost/tienda/pending.php',
+       'success' => 'https://localhost/tienda/success.php',
+    )),
+     'notification_url' => 'https://www.asdasdgdsd.com/tienda/notificaciones.php',
+     'init_point' => 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=469485398-d72a4462-a952-460b-9e0c-dcf551ebea40',
+     'sandbox_init_point' => 'https://sandbox.mercadopago.com.ar/checkout/v1/redirect?pref_id=469485398-d72a4462-a952-460b-9e0c-dcf551ebea40',
+     'operation_type' => 'regular_payment',
+     'additional_info' => '',
+     'external_reference' => 'jpabloz_84@hotmail.com_test_7257923',
+     'expires' => false,
+     'expiration_date_from' => NULL,
+     'expiration_date_to' => NULL,
+     'collector_id' => 469485398,
+     'client_id' => 2147483647,
+     'marketplace' => 'NONE',
+     'marketplace_fee' => 0.0,
+     'differential_pricing' => NULL,
+     'payment_methods' => 
+    stdClass::__set_state(array(
+       'default_card_id' => NULL,
+       'default_payment_method_id' => NULL,
+       'excluded_payment_methods' => 
+      array (
+        0 => 
+        stdClass::__set_state(array(
+           'id' => 'amex',
+        )),
+      ),
+       'excluded_payment_types' => 
+      array (
+        0 => 
+        stdClass::__set_state(array(
+           'id' => 'atm',
+        )),
+      ),
+       'installments' => 6,
+       'default_installments' => NULL,
+    )),
+     'items' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'id' => '1234',
+         'category_id' => '',
+         'currency_id' => 'ARS',
+         'description' => 'Dispositivo móvil de Tienda e-commerce',
+         'picture_url' => 'https://localhost/tienda/assets/003.jpg',
+         'title' => 'Sony Xperia XZ2',
+         'quantity' => 1,
+         'unit_price' => 10000,
+      )),
+    ),
+     'payer' => 
+    MercadoPago\Payer::__set_state(array(
+       'id' => NULL,
+       'entity_type' => NULL,
+       'type' => NULL,
+       'name' => 'Lalo',
+       'surname' => 'Landa',
+       'first_name' => NULL,
+       'last_name' => NULL,
+       'email' => 'test_user_63274575@testuser.com',
+       'date_created' => '2020-10-01T22:50:45.000-03:00',
+       'phone' => 
+      stdClass::__set_state(array(
+         'area_code' => '11',
+         'number' => '22223333',
+      )),
+       'identification' => 
+      stdClass::__set_state(array(
+         'number' => '1234567',
+         'type' => 'DNI',
+      )),
+       'address' => 
+      stdClass::__set_state(array(
+         'zip_code' => '1111',
+         'street_name' => 'False',
+         'street_number' => '123',
+      )),
+       '_last' => NULL,
+       'error' => NULL,
+       '_pagination_params' => NULL,
+       '_empty' => false,
+    )),
+     'shipments' => 
+    MercadoPago\Shipments::__set_state(array(
+       'mode' => NULL,
+       'local_pickup' => NULL,
+       'free_methods' => NULL,
+       'cost' => NULL,
+       'free_shipping' => NULL,
+       'receiver_address' => 
+      stdClass::__set_state(array(
+         'zip_code' => '',
+         'street_name' => '',
+         'street_number' => NULL,
+         'floor' => '',
+         'apartment' => '',
+         'city_name' => NULL,
+         'state_name' => NULL,
+         'country_name' => NULL,
+      )),
+       'dimensions' => NULL,
+       'default_shipping_method' => NULL,
+       '_last' => NULL,
+       'error' => NULL,
+       '_pagination_params' => NULL,
+       '_empty' => false,
+    )),
+     'date_created' => '2020-10-01T22:50:47.000-03:00',
+     'sponsor_id' => NULL,
+     'processing_modes' => NULL,
+     'binary_mode' => false,
+     'taxes' => NULL,
+     'metadata' => 
+    array (
+    ),
+     'tracks' => NULL,
+     '_last' => NULL,
+     'error' => NULL,
+     '_pagination_params' => NULL,
+     '_empty' => false,
+     'redirect_urls' => 
+    stdClass::__set_state(array(
+       'failure' => '',
+       'pending' => '',
+       'success' => '',
+    )),
+     'site_id' => 'MLA',
+  )),
+   'error' => NULL,
+   '_pagination_params' => NULL,
+   '_empty' => false,
+   'redirect_urls' => 
+  stdClass::__set_state(array(
+     'failure' => '',
+     'pending' => '',
+     'success' => '',
+  )),
+   'site_id' => 'MLA',
+))
