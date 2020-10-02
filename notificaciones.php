@@ -1,17 +1,26 @@
 <?php
 include_once("lib/scripts.php");
-$base_url=base_url(basename(__FILE__));
-$data =file_get_contents('php://input'); //json_decode(file_get_contents('php://input'), true);
-if($data!=null){
-    $parametros="JSONPARAMS\n".$data;
-    savelog("log.txt",$parametros);
-
+$exito=false;
+try {
+    $base_url=base_url(basename(__FILE__));
+    $data =file_get_contents('php://input'); //json_decode(file_get_contents('php://input'), true);
+    $eval1=true;
+    if($data!=null){
+        $parametros="\n[JSONPARAMS]\n".$data;
+        $eval1=savelog("log.txt",$parametros);
+    }
+    $eval2=true;
+    if(count($_REQUEST)>0){
+    $parametros="\n[REQUESTPARAMS]\n".var_export($_REQUEST, true);
+        $eval2=savelog("log.txt",$parametros);
+    }
+$exito=($eval1 && $eval2);    
+}catch (Exception $e){
+    $exito=false;
+    savelog("system_log.txt",$e->getMessage());
 }
 
-if(count($_REQUEST)>0){
-$parametros="REQUESTPARAMS\n".var_export($_REQUEST, true);
-    savelog("log.txt",$parametros);
-}
+
 
 
 ?>
@@ -169,5 +178,10 @@ $parametros="REQUESTPARAMS\n".var_export($_REQUEST, true);
 </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div id="ac-gn-viewport-emitter"> </div></body></html>
 
 <?php
-http_response_code(200);
+if($exito){
+http_response_code(200);    
+}else{
+savelog("system_log.txt","No se ha superado algunas de las instancias");
+}
+
 ?>
