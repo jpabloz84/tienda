@@ -1,9 +1,9 @@
 <?php
 include_once("lib/scripts.php");
 $base_url=base_url(basename(__FILE__));
-$data = json_decode(file_get_contents('php://input'), true);
+$data =file_get_contents('php://input'); //json_decode(file_get_contents('php://input'), true);
 if($data!=null){
-    $parametros="jsonparams:".var_export($data, true);
+    $parametros="jsonparams:".$data;
     savelog("log.txt",$parametros);
 }
 

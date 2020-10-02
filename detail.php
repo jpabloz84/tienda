@@ -36,9 +36,10 @@ $mp->successurl=$base_url."pedido_pagado.php";
 $mp->pendingurl=$base_url."pedido_pendiente.php";
 $mp->failureurl=$base_url."pedido_fallo.php";
 $mp->notificacionesurl=$base_url."notificaciones.php";
-
+//$external_referencia="jpabloz_84@hotmail.com_test_".$id_articulo;
+$external_referencia="jpabloz_84@hotmail.com";
 /*la cantidad de cuotas y los pagos excluidos, estan definidos dentro de la clase como atributos privados*/
-$preference_id=$mp->getinitpoint($id_articulo."_test",$productos,$pagante);
+$preference_id=$mp->getinitpoint($external_referencia,$productos,$pagante);
 $datapublickey=$accesstoken;
 ?>
 <!DOCTYPE html>
