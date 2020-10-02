@@ -22,8 +22,8 @@ $parametros="REQUESTPARAMS\n".var_export($_REQUEST, true);
     <title>Tienda e-commerce</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="format-detection" content="telephone=no">
-    <script src="js/security.js" view="notificaciones"></script>
+    <meta name="format-detection" content="telephone=no">    
+    <script src="https://www.mercadopago.com/v2/security.js" view="notificaciones"></script>
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

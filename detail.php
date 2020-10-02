@@ -49,10 +49,9 @@ savelog("log.txt",$preferencestr);
     
     <meta name="viewport" content="width=1024">
     <title>Tienda e-commerce</title>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="format-detection" content="telephone=no">
-    <script src="js/security.js" view="detail"></script>
+    <meta name="format-detection" content="telephone=no">    
+    <script src="https://www.mercadopago.com/v2/security.js" view="detail"></script>
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -282,7 +281,7 @@ $(document).bind('DOMNodeInserted', function(e) {
 
 /*
 tarjetas de prueba
-
+https://github.com/jpabloz84/tienda
 Mastercard  5031 7557 3453 0604 123 11/25
 Visa    4509 9535 6623 3704 123 11/25
 American Express    3711 803032 57522   1234    11/25
