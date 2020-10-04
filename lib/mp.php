@@ -12,7 +12,7 @@ class mp{
  public $failureurl='';// url de donde mercadopago va a contestar cuando el pago haya fallado
  public $pendingurl=''; // url de donde mercadopago va a contestar cuando el pago este pendiente
  public $notificacionesurl='';// url de donde mercadopago va a notificar cambios (devoluciones por ejemplo)
- public $aprobados=true; //notifica solo pagos aprobados, sino poner false para que notifique todos
+ public $aprobados=false; //notifica solo pagos aprobados, sino poner false para que notifique todos
  private $error=null;
  private $PLATFORM_ID="";
  private $INTEGRATOR_ID="dev_24c65fb163bf11ea96500242ac130004";
